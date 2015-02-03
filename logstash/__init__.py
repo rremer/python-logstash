@@ -1,4 +1,4 @@
-
+__version__ = '0.4.4'
 from logstash.formatter import LogstashFormatterVersion0, LogstashFormatterVersion1
 
 from logstash.handler_tcp import TCPLogstashHandler

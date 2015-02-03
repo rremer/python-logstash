@@ -6,6 +6,8 @@ http://logstash.net/
 
 Changelog
 =========
+0.4.4
+  - Added tests and sanitized invocation args
 0.4.3
   - Added AMQP handler.
 0.4.2
@@ -118,6 +120,13 @@ Modify your ``settings.py`` to integrate ``python-logstash`` with Django's loggi
     ...
   }
 
+Testing
+=======
+From the top-level project directory run::
+
+  python -m unittest discover
+    
+
 Contributors
 ------------
  - Volodymyr Klochan
@@ -125,3 +134,4 @@ Contributors
  - Alexander Boyd
  - joel-wright
  - Dale O'Brien
+ - Royce Remer
