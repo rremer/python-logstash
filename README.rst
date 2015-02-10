@@ -122,10 +122,15 @@ Modify your ``settings.py`` to integrate ``python-logstash`` with Django's loggi
 
 Testing
 =======
-From the top-level project directory run::
+First install tox::
 
-  python -m unittest discover
-    
+  pip install tox
+
+Then from the top-level project directory run::
+
+  tox
+
+This will execute `python -m unittest discover` with python 2.7 and python 3.4 runtimes.
 
 Contributors
 ------------

@@ -13,7 +13,7 @@ class formatterTestCase(unittest.TestCase):
 
     def test_formatter_base_version_req_compatibility(self):
         """Fail if broken backwards-compatibility/required args."""
-        for version in self.version_args.iterkeys():
+        for version in self.version_args.keys():
             required_args = self.version_args[version]['required']
             test_formatter = None
             try:
@@ -31,7 +31,7 @@ class formatterTestCase(unittest.TestCase):
 
     def test_formatter_base_version_opt_compatibility(self):
         """Fail if broken backwards-compatibility/optional args."""
-        for version in self.version_args.iterkeys():
+        for version in self.version_args.keys():
             required_args = list(self.version_args[version]['required'].items())
             optional_args = list(self.version_args[version]['optional'].items())
             invoc_args = dict(required_args + optional_args)
