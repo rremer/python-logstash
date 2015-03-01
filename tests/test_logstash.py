@@ -1,7 +1,10 @@
+import sys
 import unittest
 import logstash
 
-class formatterTestCase(unittest.TestCase):
+
+class FormatterTestCase(unittest.TestCase):
+
     def setUp(self):
         self.current_version = logstash.__version__
 
@@ -50,21 +53,23 @@ class formatterTestCase(unittest.TestCase):
                    repr(invoc_args), error_msg)))
 
 
-class handlerAmqpTestCase(unittest.TestCase):
+class HandlerAmqpTestCase(unittest.TestCase):
     pass
 
-class handlerTcpTestCase(unittest.TestCase):
+
+class HandlerTcpTestCase(unittest.TestCase):
     pass
 
-class handlerUdpTestCase(unittest.TestCase):
+
+class HandlerUdpTestCase(unittest.TestCase):
     pass
 
-if __name__ == '__main__':
-    logstashTestSuite = (unittest.TestLoader().
-                         loadTestsfromTestCase(formatterTestCase()),
-                         unittest.TestLoader().
-                         loadTestsfromTestCase(handlerAmqpTestCase()),
-                         unittest.TestLoader().
-                         loadTestsfromTestCase(handlerTcpTestCase()),
-                         unittest.TestLoader().
-                         loadTestsfromTestCase(handlerUdpTestCase()))
+
+if sys.version_info[0] == 2 and sys.version_info[1] < 7:
+    def assertIsInstance(self, obj, cls, msg=None):
+        """Same as self.assertTrue(isinstance(obj, cls)), with a nicer
+        default message."""
+        if not isinstance(obj, cls):
+            standardMsg = '%s is not an instance of %r' % (safe_repr(obj), cls)
+            self.fail(self._formatMessage(msg, standardMsg))
+    unittest.TestCase.assertIsInstance = assertIsInstance
